@@ -1,0 +1,123 @@
+// UI translations. To add a language, copy a block, change its key (e.g. "fr") and translate the values.
+// Anything missing falls back to English. `label` is the name shown in the language menu.
+// tags: keys are the English tag text used in licenses.js. summaries: keys are SPDX IDs.
+const I18N = {
+  en: {
+    label: "English",
+    ui: {
+      title: "Open-Source License Catalog",
+      heading: "Open-source licenses",
+      subtitle: "Compare what each license lets you do, and what it asks in return.",
+      language: "Language",
+      search: "Search by name, SPDX ID, or term",
+      filterLabel: "Filter by family",
+      all: "All",
+      expand: "Expand all",
+      collapse: "Collapse all",
+      count: "Showing {shown} of {total} licenses",
+      empty: "No licenses match. Try a different word or clear the filter.",
+      linkText: "Official text on spdx.org",
+      linkNoText: "Read the full text on spdx.org",
+      footer: "Summaries are informational, not legal advice. License texts are shown in their original English, which is the authoritative version. Check the official text before you rely on a license."
+    },
+    families: { permissive: "Permissive", weak: "Weak copyleft", strong: "Strong copyleft" },
+    tags: {},
+    summaries: {}
+  },
+
+  es: {
+    label: "Español",
+    ui: {
+      title: "Catálogo de licencias de código abierto",
+      heading: "Licencias de código abierto",
+      subtitle: "Compara qué te permite cada licencia y qué te exige a cambio.",
+      language: "Idioma",
+      search: "Buscar por nombre, ID SPDX o término",
+      filterLabel: "Filtrar por familia",
+      all: "Todas",
+      expand: "Expandir todo",
+      collapse: "Contraer todo",
+      count: "Mostrando {shown} de {total} licencias",
+      empty: "Ninguna licencia coincide. Prueba con otra palabra o quita el filtro.",
+      linkText: "Texto oficial en spdx.org",
+      linkNoText: "Leer el texto completo en spdx.org",
+      footer: "Los resúmenes son informativos y no constituyen asesoramiento legal. Los textos de las licencias se muestran en su inglés original, que es la versión de referencia. Consulta el texto oficial antes de confiar en una licencia."
+    },
+    families: { permissive: "Permisiva", weak: "Copyleft débil", strong: "Copyleft fuerte" },
+    tags: {
+      "Commercial use": "Uso comercial",
+      "Modify": "Modificar",
+      "Distribute": "Distribuir",
+      "Attribution required": "Requiere atribución",
+      "No endorsement": "Sin uso del nombre para promocionar",
+      "Patent grant": "Concesión de patentes",
+      "State changes": "Indicar cambios",
+      "No attribution": "Sin atribución",
+      "Share-alike (per file)": "Copyleft (por archivo)",
+      "Share-alike (library)": "Copyleft (biblioteca)",
+      "Share-alike": "Misma licencia (copyleft)",
+      "Disclose source": "Publicar el código fuente",
+      "Network use = distribution": "Uso en red = distribución"
+    },
+    summaries: {
+      "MIT": "Breve y sencilla. Puedes hacer casi cualquier cosa siempre que conserves el aviso de copyright y de licencia.",
+      "ISC": "Funcionalmente igual a MIT con redacción más simple. Común en el ecosistema de Node.js.",
+      "BSD-2-Clause": "Permisiva. Conserva el aviso de copyright en las redistribuciones de código fuente y binarios.",
+      "BSD-3-Clause": "Como BSD de 2 cláusulas, y además prohíbe usar el nombre de los autores para promocionar productos derivados.",
+      "Apache-2.0": "Permisiva con concesión expresa de patentes. Debes indicar los cambios e incluir el archivo NOTICE.",
+      "Unlicense": "Dedica la obra al dominio público. Sin ninguna condición.",
+      "MPL-2.0": "Copyleft por archivo. Los cambios en archivos MPL siguen siendo MPL; puedes combinarlos con otro código.",
+      "LGPL-3.0-only": "Copyleft para bibliotecas. Puedes enlazarla desde código propietario, pero los cambios en la biblioteca siguen siendo LGPL.",
+      "GPL-3.0-only": "Copyleft fuerte. Las obras derivadas que se distribuyan deben ser GPL y con el código fuente disponible.",
+      "AGPL-3.0-only": "GPL más una cláusula de red: quienes usen una versión modificada alojada pueden solicitar el código fuente."
+    }
+  },
+
+  zh: {
+    label: "简体中文",
+    ui: {
+      title: "开源许可证目录",
+      heading: "开源许可证",
+      subtitle: "比较每种许可证允许你做什么，又要求你做什么。",
+      language: "语言",
+      search: "按名称、SPDX 标识或关键词搜索",
+      filterLabel: "按类型筛选",
+      all: "全部",
+      expand: "全部展开",
+      collapse: "全部收起",
+      count: "显示 {shown} / {total} 个许可证",
+      empty: "没有匹配的许可证。请换个关键词或清除筛选。",
+      linkText: "spdx.org 上的官方文本",
+      linkNoText: "在 spdx.org 阅读完整文本",
+      footer: "摘要仅供参考，不构成法律意见。许可证文本以英文原文显示，英文原文为准。使用某个许可证前，请核对官方文本。"
+    },
+    families: { permissive: "宽松", weak: "弱 Copyleft", strong: "强 Copyleft" },
+    tags: {
+      "Commercial use": "可商业使用",
+      "Modify": "可修改",
+      "Distribute": "可分发",
+      "Attribution required": "需署名",
+      "No endorsement": "禁止借名宣传",
+      "Patent grant": "专利授权",
+      "State changes": "需说明修改",
+      "No attribution": "无需署名",
+      "Share-alike (per file)": "相同方式共享（按文件）",
+      "Share-alike (library)": "相同方式共享（库）",
+      "Share-alike": "相同方式共享",
+      "Disclose source": "需公开源代码",
+      "Network use = distribution": "网络使用视同分发"
+    },
+    summaries: {
+      "MIT": "简短易懂。只要保留版权和许可声明，几乎可以随意使用。",
+      "ISC": "功能上与 MIT 相同，措辞更简洁。常见于 Node.js 生态。",
+      "BSD-2-Clause": "宽松许可。再分发源码或二进制时需保留版权声明。",
+      "BSD-3-Clause": "与 BSD 2 条款类似，另禁止以作者名义为衍生产品背书。",
+      "Apache-2.0": "宽松许可，明确授予专利权。须说明修改内容并附带 NOTICE 文件。",
+      "Unlicense": "将作品奉献给公有领域，没有任何条件。",
+      "MPL-2.0": "文件级 copyleft。修改过的 MPL 文件仍须以 MPL 发布，但可与其他代码组合。",
+      "LGPL-3.0-only": "库级 copyleft。可从专有代码中链接，但对库本身的修改仍须以 LGPL 发布。",
+      "GPL-3.0-only": "强 copyleft。分发衍生作品时必须采用 GPL 并提供源代码。",
+      "AGPL-3.0-only": "在 GPL 基础上增加网络条款：使用托管的修改版本的用户可要求获取源代码。"
+    }
+  }
+};

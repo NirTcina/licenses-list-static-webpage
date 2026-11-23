@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+  Copyright (C) 2026 Tsuneyo
+  SPDX-License-Identifier: GPL-3.0-only
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open-Source License Catalog</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1 data-i18n="heading"></h1>
+      <p data-i18n="subtitle"></p>
+    </div>
+    <label class="lang"><span data-i18n="language"></span> <select id="lang"></select></label>
+  </header>
+  <main>
+    <div class="controls">
+      <input id="q" type="search">
+      <div id="filters" role="group"></div>
+      <div class="bulk">
+        <button id="expand" type="button" data-i18n="expand"></button>
+        <button id="collapse" type="button" data-i18n="collapse"></button>
+      </div>
+    </div>
+    <p id="count" aria-live="polite"></p>
+    <div id="list"></div>
+    <p id="empty" hidden data-i18n="empty"></p>
+  </main>
+  <footer data-i18n="footer"></footer>
+  <script src="data/licenses.js"></script>
+  <script src="data/texts.js"></script>
+  <script src="data/i18n.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
