@@ -7,7 +7,7 @@ A static website for browsing open-souce licenses. Search, filter by family, exp
 一个可以用于浏览开源许可的静态网站。可以搜索、按类别筛选，展开或折叠每个许可证，可切换语言。无需构建步骤，无依赖项。
 :3
 
-## Feature / 功能特性
+## Features / 功能特性
 
 - Search by name, SPDX ID, summary, tag, or license text
 - Filter by family: permissive, weak copylefft, strong copyleft
@@ -48,25 +48,25 @@ index.html 中的脚本顺序较为重要：先 `licenses.js`, 后 `texts.js`, �
 
 ## Add a license / 添加新的许可
 
-1. Add an object to `LICENSES` in `data/licenses.js`:
+- Add an object to `LICENSES` in `data/licenses.js`:
    ```js
    { name: "Example License", spdx: "Example-1.0", family: "permissive",
      summary: "One-sentence summary.",
      tags: ["Commercial use", "Modify"],
      url: "https://spdx.org/licenses/Example-1.0.html", text: "" }
    ```
-2. Paste the full text into `data/texts.js` under the same SPDX ID.
-3. Add a summary for each language in `data/i18n.js` (missing ones fall back to English).
+- Paste the full text into `data/texts.js` under the same SPDX ID.
+- Add a summary for each language in `data/i18n.js` (missing ones fall back to English).
 
-1. 在 `data/licenses.js` 中向 `LICENSES` 添加对象：
+- 在 `data/licenses.js` 中向 `LICENSES` 添加对象：
    ```js
    { name: "Example License", spdx: "Example-1.0", family: "permissive",
      summary: "One-sentence summary.",
      tags: ["Commercial use", "Modify"],
      url: "https://spdx.org/licenses/Example-1.0.html", text: "" }
    ```
-2. 将全文粘贴至 `data/texts.js` 相同的 SPDX ID 下。
-3. 在 `data/i18n.js` 中为每种语言添加摘要（缺失的则会回归为英语）。
+- 将全文粘贴至 `data/texts.js` 相同的 SPDX ID 下。
+- 在 `data/i18n.js` 中为每种语言添加摘要（缺失的则会回归为英语）。
 
 ## Add a language / 添加新的语言
 

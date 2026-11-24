@@ -26,11 +26,46 @@
     return [saved, browser].find(c => c && I18N[c]) || "en";
   }
 
+  // ---- LICENSE generation (client-side only: Blob + temporary <a download>) ----
+  // Placeholder styles used by the official texts:
+  //   MIT/ISC: <year> <copyright holders>   BSD: <year> <owner>
+  //   Apache-2.0: [yyyy] [name of copyright owner]   GPL appendix: <year> <name of author>
+  const YEAR_RE = /<year>|\[yyyy\]|\[year\]/gi;
+  const HOLDER_RE = /<copyright holders?>|<owner>|<name of author>|<name of copyright owner>|\[name of copyright owner\]|\[fullname\]/gi;
+
+  const PROGRAM_RE = /<program>/gi;   // GPL-family appendix: "<program>  Copyright (C) <year>  <name of author>"
+
+  function fillPlaceholders(text) {
+    const holder = $("holder").value.trim(), year = $("year").value.trim();
+    if (year) text = text.replace(YEAR_RE, () => year);
+    if (holder) text = text.replace(HOLDER_RE, () => holder);
+    const program = $("program").value.trim();
+    if (program) text = text.replace(PROGRAM_RE, () => program);
+    return text;
+  }
+
+  function downloadLicense(text) {
+    const content = fillPlaceholders(text).replace(/\r\n?/g, "\n").trimEnd() + "\n";
+    const blob = new Blob([content], { type: "application/octet-stream" });
+    // octet-stream stops Chromium/Edge from adding ".txt" to an extension-less name.
+    // The content itself is still UTF-8 (no BOM).
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "LICENSE";
+    a.hidden = true;
+    document.body.append(a);   // Firefox needs the link in the DOM
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
   // ---- static page text ----
   function translatePage() {
     document.documentElement.lang = lang;
     document.title = t("title");
     document.querySelectorAll("[data-i18n]").forEach(n => { n.textContent = t(n.dataset.i18n); });
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(n => { n.placeholder = t(n.dataset.i18nPlaceholder); });
     q.placeholder = t("search");
     q.setAttribute("aria-label", t("search"));
     filters.setAttribute("aria-label", t("filterLabel"));
@@ -73,6 +108,15 @@
       const a = el("a", null, text ? t("linkText") : t("linkNoText"));
       a.href = l.url; a.target = "_blank"; a.rel = "noopener";
       body.append(a);
+      const dl = el("button", "dl", t("download"));
+      dl.type = "button";
+      if (text) {
+        dl.onclick = () => downloadLicense(text);
+        body.append(document.createElement("br"), dl);
+      } else {
+        dl.disabled = true;
+        body.append(document.createElement("br"), dl, el("p", "hint", t("noText")));
+      }
       d.append(s, body);
       list.append(d);
       return { l, d, hay: [l.name, l.spdx, summary, l.summary, ...tags, ...l.tags, text].join(" ").toLowerCase() };
@@ -113,6 +157,7 @@
   }
   addEventListener("hashchange", openHash);
 
+  $("year").value = new Date().getFullYear();
   setLanguage(pickLanguage());
   openHash();
 })();
